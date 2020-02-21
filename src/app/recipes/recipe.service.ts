@@ -1,4 +1,5 @@
 import {Recipe} from './recipe.model';
+import {EventEmitter} from '@angular/core';
 
 export class RecipeService {
   private recipes: Recipe[] = [
@@ -7,10 +8,13 @@ export class RecipeService {
     // tslint:disable-next-line:max-line-length
     new Recipe('A test recipe 2', 'This is a test 2', 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/9/26/0/FNK_Tuscan-Chicken-Skillet_H2_s4x3.jpg.rend.hgtvcom.826.620.suffix/1537973085542.jpeg')
   ];
+  recipeSelected: EventEmitter<Recipe> = new EventEmitter<Recipe>();
 
   getRecipes() {
     // TODO fix slice()
     // return this.recipes.slice();
     return this.recipes;
   }
+
+
 }
